@@ -6,7 +6,3 @@ Apresenta duas páginas: Home, com informações sociodemográficas e sua relaç
 
 
 
-Na página relaciona a IA, é apresentado gráfico com acurácia de cada método para a classificação dos níveis de severidade:
-![macLear]([https://i.ibb.co/QFVdd7p/macLear.png](https://ibb.co/dDPTS0g))
-
-
