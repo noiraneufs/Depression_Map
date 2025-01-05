@@ -1,0 +1,1 @@
+{"Random Forest": 0.826, "SVM": 0.8775, "Regress\u00e3o Log\u00edstica": 0.8603, "K-Vizinhos Mais Pr\u00f3ximos": 0.7598, "Naive Bayes": 0.7794, "\u00c1rvore de Decis\u00e3o": 0.7844, "AdaBoost": 0.7879, "CatBoost": 0.8579, "XGBoost": 0.8359}
