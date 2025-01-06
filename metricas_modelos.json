@@ -1,11 +1,11 @@
 {
-  "Random Forest": 99.90,
-  "SVM": 99.71,
-  "Logistic Regression": 99.08,
-  "KNN": 87.67,
-  "Naive Bayes": 98.45,
-  "Decision Tree": 93.47,
-  "AdaBoost": 70.42,
-  "CatBoost": 99.49,
-  "XGBoost": 99.30
+  "Random Forest": 0.999,
+  "SVM": 0.9971,
+  "Logistic Regression": 0.9908,
+  "KNN": 0.8767,
+  "Naive Bayes": 0.9845,
+  "Decision Tree": 0.9347,
+  "AdaBoost": 0.7042,
+  "CatBoost": 0.9949,
+  "XGBoost": 0.993
 }
