@@ -1,9 +1,9 @@
 {
-    "Random Forest": 0.9584,
+    "Floresta Aleatória": 0.9584,
     "SVM": 0.9966,
-    "Logistic Regression": 0.9969,
-    "K-Nearest Neighbors": 0.9187,
-    "Gaussian Naive Bayes": 0.6854,
-    "Decision Tree": 0.8455,
+    "Regressão Logística": 0.9969,
+    "K-Vizinhos Mais Próximos": 0.9187,
+    "Naive Bayes Gaussiano": 0.6854,
+    "Árvore de Decisão": 0.8455,
     "AdaBoost": 0.4936
 }
