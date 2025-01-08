@@ -1,9 +1,9 @@
 {
     "Random Forest": 0.9584,
     "SVM": 0.9966,
-    "Regress\u00e3o Log\u00edstica": 0.9969,
-    "K-Vizinhos Mais Pr\u00f3ximos": 0.9187,
+    "Logistic Regression": 0.9969,
+    "K-Nearest Neighbors": 0.9187,
     "Naive Bayes": 0.6854,
-    "\u00c1rvore de Decis\u00e3o": 0.8455,
+    "Decision Tree": 0.8455,
     "AdaBoost": 0.4936
 }
