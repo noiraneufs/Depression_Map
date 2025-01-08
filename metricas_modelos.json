@@ -3,7 +3,7 @@
     "SVM": 0.9966,
     "Logistic Regression": 0.9969,
     "K-Nearest Neighbors": 0.9187,
-    "Naive Bayes": 0.6854,
+    "Gaussian Naive Bayes": 0.6854,
     "Decision Tree": 0.8455,
     "AdaBoost": 0.4936
 }
