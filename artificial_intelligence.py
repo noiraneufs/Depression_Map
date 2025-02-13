@@ -1,42 +1,39 @@
-import joblib
+import json
+import numpy as np
 import matplotlib.pyplot as plt
 import streamlit as st
-from matplotlib.ticker import PercentFormatter
-import json
-import zipfile
-import os
 
 def graph_models():
-  
-    with open('metricas_modelos.json', 'r') as f:
-        resultados = json.load(f)
+    with open('resultados_validacao_cruzada.json', 'r') as file:
+        dados = json.load(file)
 
-    # plotar o gráfico de barras
-    fig, ax = plt.subplots()
-    modelos = list(resultados.keys())
-    acuracias = list(resultados.values())
-    
-    barras = ax.bar(modelos, acuracias, color='orange')
-    ax.set_xlabel('Models')
-    ax.set_ylabel('Accuracy (%)')  # Indica que os valores estão em porcentagem
-    ax.set_title('Accuracy in Predicting Depression Level')
+    modelos = list(dados.keys())
+    media_acuracia = [np.mean(dados[modelo]["acuracia"]) for modelo in modelos]
+    media_f1 = [np.mean(dados[modelo]["f1_score"]) for modelo in modelos]
 
-    # rotação dos rótulos do eixo x
-    plt.xticks(rotation=45, ha='right')
+    modelos_ordenados, media_acuracia_ordenada, media_f1_ordenada = zip(*sorted(
+        zip(modelos, media_acuracia, media_f1), key=lambda x: x[1]))
 
-    # adicionar o valor da acurácia 
-    for barra in barras:
-        altura = barra.get_height()
-        ax.text(barra.get_x() + barra.get_width() / 2.0, altura, f'{altura * 100:.2f}%', 
-                ha='center', va='bottom', fontsize=8)  # Ajuste o tamanho da fonte aqui
+    fig, ax = plt.subplots(figsize=(8, 4))
 
-    # configurar o eixo y para exibir como porcentagem com duas casas decimais
-    ax.yaxis.set_major_formatter(PercentFormatter(xmax=1, decimals=2))
+    bar_width = 0.4
+    indices = np.arange(len(modelos_ordenados))
 
+    bars1 = ax.barh(indices - bar_width/2, media_acuracia_ordenada, bar_width, label='Acurácia', color='blue')
+    bars2 = ax.barh(indices + bar_width/2, media_f1_ordenada, bar_width, label='Medida-F1', color='orange')
+
+    for bar in bars1:
+        ax.text(bar.get_width() + 0.01, bar.get_y() + bar.get_height()/2, f'{bar.get_width():.4f}', va='center', fontsize=12)
+    for bar in bars2:
+        ax.text(bar.get_width() + 0.01, bar.get_y() + bar.get_height()/2, f'{bar.get_width():.4f}', va='center', fontsize=12)
+
+    ax.set_yticks(indices)
+    ax.set_yticklabels(modelos_ordenados)
+    ax.set_xlabel("Média das Métricas")
+    ax.set_title("Comparação dos Modelos - Acurácia vs Medida-F1")
+    ax.legend()
+    ax.set_xlim(0, 1.2)
+
+    plt.grid(axis='x', linestyle='--', alpha=0.6)
 
     st.pyplot(fig)
-
-
-
-
- 
